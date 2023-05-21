@@ -208,6 +208,10 @@ public class Finder {
 //        }
         return result;
     }
+
+    public static Gob findCropInArea( double distance, NArea area, boolean maxStage) {
+        return findCropInArea(new NAlias("plant"), distance, area, maxStage);
+    }
     
     public static ArrayList<Gob> findCropsInArea (
             NAlias name,
@@ -231,6 +235,13 @@ public class Finder {
         }
         sort(result);
         return result;
+    }
+
+    public static ArrayList<Gob> findCropsInArea(
+        NArea area,
+        boolean maxStage
+    ) {
+        return findCropsInArea(new NAlias("plant"), area, maxStage);
     }
     
     public static ArrayList<Gob> findObjectsInArea (

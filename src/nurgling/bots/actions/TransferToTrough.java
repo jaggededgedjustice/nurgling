@@ -14,6 +14,14 @@ public class TransferToTrough implements Action {
     @Override
     public Results run ( NGameUI gui )
             throws InterruptedException {
+
+        // Some things can't be put in a trough
+        NAlias droppable = new NAlias("fibre", "Fibre", "tobacco");
+        for (GItem item : gui.getInventory().getGItems(items)) {
+            if (NUtils.isIt(item, droppable)) {
+                NUtils.drop(item);
+            }
+        }
         
         while ( !gui.getInventory ().getWItems( items ).isEmpty () ) {
             

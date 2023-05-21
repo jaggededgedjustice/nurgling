@@ -558,6 +558,10 @@ public class NUtils {
         item.wdgmsg("iact", Coord.z, 1);
     }
 
+    public static void item_action(Coord2d coord, int modifier) {
+        gameUI.map.wdgmsg("itemact", Coord.z, coord.floor(OCache.posres), modifier);
+    }
+
     public static void takeFromEarth(Gob gob) throws InterruptedException {
             gameUI.map.wdgmsg("click", Coord.z, gob.rc.floor(posres), 3, 0, 1, (int) gob.id,
                     gob.rc.floor(posres), 0, -1);
@@ -1971,4 +1975,6 @@ public class NUtils {
         }
         return null;
     }
+
+    public static NAlias CONTAINERS =  new NAlias(new ArrayList<>(Arrays.asList("crate", "chest", "basket")));
 }
