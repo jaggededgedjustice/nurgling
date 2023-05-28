@@ -113,7 +113,7 @@ public class GetBestSeed implements Action {
 
         Vector<GItem> seeds = new Vector<GItem>();
         for (GItem item : store.getGItems(crop)) {
-            if (getAmount(item) > 5) {
+            if (getAmount(item) >= 5) {
                 seeds.addElement(item);
             }
         }
